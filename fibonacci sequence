@@ -100,11 +100,11 @@ then the size of the arrays we merge doubles up.
 so,
 total time = O(N)+O(2N)+O(4N)+...........+O(2^log2(K) . N)
            = O(N(2^log2(K) - 1)
-           = O(NK − N)
+           = O(NK − N) = Time complexity
 
 >>>>Ways to improve our implementation of problem 1
-a. We can use other merging algorithms which takes much less time and space for merging two arrays.
- Doing this may be a bit difficult but, It can definitely improve the Time complexity and Space Complexity.
+a. We can use other merging algorithms which takes much less time and space for merging two arrays.(Trees and Heaps)
+ Doing this may be a bit challanging but, It can definitely improve the Time complexity and Space Complexity.
 b. We can also analyze the input data before hand , as this will help us to divide the data into clusters of same category
 and paralley solve them using the best suitable algorithms and merge them later.
 
@@ -122,7 +122,8 @@ that can also be represented as Θ(N).
 >>>>Ways to improve our implementation of problem 2
 a. We know that the array is sorted ... so we can implement binary search on it...as it is best of all search techniques to implement 
 when an arrray is already sorted.
-b. Another way is to iterate through the array from both ends at the same time ,this is from the front and and the rare end using two pointers and stop the search when both pointers meet. 
+b. Another way is to iterate through the array from both ends at the same time ,this is from the front and and the rare end using two pointers and stop the search when both pointers meet.
+(or we can also use one pointer to iterate through the whole array and another to locate duplicates and delete them.)
 As this approach will make it simple and quick for us to iterate through whole array, however the time and space complexity will vary based on the inputs.
 (This is similar to divide and conquer approach)
 
