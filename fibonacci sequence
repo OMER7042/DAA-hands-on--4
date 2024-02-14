@@ -8,5 +8,128 @@ def fib(n):
     return fib(n-1) + fib(n-2)
 
 
-Stepping into" the function for fib(5)
+Stepping into the function for fib(5) as directed.
+
+The fibonacci of 0 and 1... that is fib(0) returns 0 and fib(1) returns 1.
+
+The fibonacci goes like fib(n) = fib(n-1) + fib(n-2)
+SO,
+The calculation of fib(5) is as follows:
+
+fib(5) = fib(4) + fib(3)
+then
+fib(4) = fib(3) + fib(2)
+then
+fib(3) = fib(2) + fib(1)
+then
+fib(2) = fib(1) + fib(0)
+and
+fib(1) = 1
+and
+fib(0) = 0
+
+Then the values are returned from fib(0) to fib(5)
+
+fib(2) returns as fib(1) and fib(0).
+fib(3) returns as (fib(2) and fib(1).
+fib(4) returns as (fib(3) and fib(2).
+FINALLY
+fib(5) result is computed using fib(3) and fib(4) values that have returned.
+
+
+2. We use the concept of merge sort to sort the arrays of given lenghth N.
+Implementation of merge sort in python>
+
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    # Split the array into two halves
+    mid = len(arr) // 2
+    lhs_arr = arr[:mid]
+    rhs_arr = arr[mid:]
+    
+    # Recursively sort each half
+    lhs_arr = merge_sort(lhs_arr)
+    rhs_arr = merge_sort(rhs_arr)
+    
+    # Merge the sorted halves
+    return merge(lhs_arr, rhs_arr)
+
+def merge(left, right):
+    merged = []
+    left_index = 0
+    right_index = 0
+    
+    # Merge both the halves with elements in both
+    while left_index < len(left) and right_index < len(right):
+        if left[left_index] < right[right_index]:
+            merged.append(left[left_index])
+            left_index += 1
+        else:
+            merged.append(right[right_index])
+            right_index += 1
+    
+    # Add remaining elements from the lhs
+    while left_index < len(left):
+        merged.append(left[left_index])
+        left_index += 1
+    
+    # Add remaining elements from the rhs
+    while right_index < len(right):
+        merged.append(right[right_index])
+        right_index += 1
+    
+    return merged
+
+#given array
+# arr is where we enter the unsorted arrays.
+arr = [            ]
+sorted_arr = merge_sort(arr)
+print("This array is sorted by merge sort:", sorted_arr)
+
+>>>>>>>>>PROBLEM 1:merging K sorted arrays of size N
+
+Time complexity: 
+1st we merge two sorted arrays of size N and then merge the 3rd array with its result.
+We continue this until all K arrays are merged into one.
+
+So at 1st the time is O(N).
+
+then the size of the arrays we merge doubles up.
+so,
+total time = O(N)+O(2N)+O(4N)+...........+O(2^log2(K) . N)
+           = O(N(2^log2(K) - 1)
+           = O(NK − N)
+
+>>>>Ways to improve our implementation of problem 1
+a. We can use other merging algorithms which takes much less time and space for merging two arrays.
+ Doing this may be a bit difficult but, It can definitely improve the Time complexity and Space Complexity.
+b. We can also analyze the input data before hand , as this will help us to divide the data into clusters of same category
+and paralley solve them using the best suitable algorithms and merge them later.
+
+
+>>>>>>>>>PROBLEM 2:Remove the duplicate elements from the array of size N.
+
+Time complexity:
+We know that, In a case where the elements are sorted,generally to remove the duplicates from the given array of size N... we must iterate through all the elements in that array 
+and remove the duplicates when we get them. Even if we do not find any duplicates we definitely must iterate through the whole array to look for a duplicate.
+SO the best case and worst case are both the same for this.
+In this case each and every element is same... So,
+Time complexity= O(N) 
+that can also be represented as Θ(N).
+
+>>>>Ways to improve our implementation of problem 2
+a. We know that the array is sorted ... so we can implement binary search on it...as it is best of all search techniques to implement 
+when an arrray is already sorted.
+b. Another way is to iterate through the array from both ends at the same time ,this is from the front and and the rare end using two pointers and stop the search when both pointers meet. 
+As this approach will make it simple and quick for us to iterate through whole array, however the time and space complexity will vary based on the inputs.
+(This is similar to divide and conquer approach)
+
+
+
+
+
+
+
 
